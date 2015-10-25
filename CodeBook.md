@@ -73,7 +73,7 @@ The script run_analysis.R does the following:
 For more information please see the README file: https://github.com/schoda01/GettingAndCleaningData/blob/master/README.md
 
 ##Description of the variables in the TidyDataSet.txt file
-TidyDataSet.txt is a a space-delimited text file. The first row contains the field names for the variables. There are a total of 180 observations (30 subjects by 6 activities) and 86 variables containing information on the mean and standard deviation variables.
+TidyDataSet.txt is a a space-delimited text file. The first row contains the field names for the variables. There are a total of 180 observations (30 subjects by 6 activities) and 86 variables containing information on the mean and standard deviation variables (variables 4 through 89 listed below). The values of the mean and standard deviation values are the mean value of the corresponding variables found in the original data set.
 
 Below is a summary of the variables in TidyDataSet.txt:
  1. subject: Factor w/ 30 levels (integers between 1 and 30)
