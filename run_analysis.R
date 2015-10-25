@@ -1,13 +1,16 @@
 ## Load packages that will be used in this script
 library(dplyr)
 
-## Create a data folder (if one does not already exist) to store download
-if(!file.exists("./data")){dir.create("./data")}
+#*********************************************************
+# ## REMOVE THE # from the following rows to automatically download source data
+# ## Create a data folder (if one does not already exist) to store download
+# if(!file.exists("./data")){dir.create("./data")}
 
-## Download data files and unzip them
-fileURL <- "https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip"
-download.file(fileURL,"./data/dataset.zip",mode = "wb")
-utils::unzip("./data/dataset.zip", exdir = "./data")
+# ## Download data files and unzip them
+# fileURL <- "https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip"
+# download.file(fileURL,"./data/dataset.zip",mode = "wb")
+# utils::unzip("./data/dataset.zip", exdir = "./data")
+#*********************************************************
 
 ## Load the testing and training data files into R
 subject_train <- read.table("data/UCI HAR Dataset/train/subject_train.txt", header = FALSE)
