@@ -52,14 +52,15 @@ Jorge L. Reyes-Ortiz, Alessandro Ghio, Luca Oneto, Davide Anguita. November 2012
 
 ##Creating the tidy datafile
 
-###Guide to create the tidy data file
- 1. Download the smart phone data to a local file (see URL above). This should be saved to the same folder called "Data" that is in the directory you will use as your Working Directory in R.
-* Note: There is code for downloading and unzipping the original data in the script that is commented out (between the rows of asterisks). If you uncomment out this code you can skip step one, since it will happen programmatically.
- 2. Save the R script called run_analysis.R to your working directory as well--NOT within the Data subfolder.
- 3. Open R and set the working directory
- 4. The run_analysis.R script uses the dplyr package, so if you do not already have package installed you must install it prior to running the script. You can install the package by running install.packages("plyr") from the console prompt. If this package is already installed move to step 5.
- 5. Run the following code from the console prompt ... source("run_analysis.R")
- 6. The file 'TidyDataSet.txt' will be created in the working directory.
+###Guide to creating the tidy data file
+ 1. Download the smart phone data to a local file:
+    * You can manually download the data from https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip. This should be saved to a folder called "Data" that is in the directory you will use as your Working Directory in R.
+    * Alternatively, there is code for downloading and unzipping the original data in the script that is commented out (between the rows of asterisks). If you uncomment out this code the file will be downloaded and saved programmatically.
+ 2. Save the R script called `run_analysis.R` to your working directory as well--NOT within the Data subfolder.
+ 3. Open R and set the working directory.
+ 4. The `run_analysis.R` script uses the dplyr package, so if you do not already have this package installed you must install it prior to running the script. You can install the package by running `install.packages("plyr")` from the console prompt. If this package is already installed move to step 5.
+ 5. Run `run_analysis.R` from the console prompt via `source("run_analysis.R")`
+ 6. The file `TidyDataSet.txt` will be created in the working directory.
 
 ###Cleaning of the data
 The script run_analysis.R does the following:
