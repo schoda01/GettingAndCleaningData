@@ -1,6 +1,6 @@
 ## Project Description
 Data from the Human Activity Recognition Using Smartphones Dataset
-Version 1.0 was used sourced in order to create a tidy data set.
+Version 1.0 was sourced and modified to create a tidy data set.
 
 ##Study design and data processing
 
@@ -8,6 +8,8 @@ Version 1.0 was used sourced in order to create a tidy data set.
 The experiments have been carried out with a group of 30 volunteers within an age bracket of 19-48 years. Each person performed six activities (WALKING, WALKING_UPSTAIRS, WALKING_DOWNSTAIRS, SITTING, STANDING, LAYING) wearing a smartphone (Samsung Galaxy S II) on the waist. Using its embedded accelerometer and gyroscope, we captured 3-axial linear acceleration and 3-axial angular velocity at a constant rate of 50Hz. The experiments have been video-recorded to label the data manually. The obtained dataset has been randomly partitioned into two sets, where 70% of the volunteers was selected for generating the training data and 30% the test data. 
 
 The sensor signals (accelerometer and gyroscope) were pre-processed by applying noise filters and then sampled in fixed-width sliding windows of 2.56 sec and 50% overlap (128 readings/window). The sensor acceleration signal, which has gravitational and body motion components, was separated using a Butterworth low-pass filter into body acceleration and gravity. The gravitational force is assumed to have only low frequency components, therefore a filter with 0.3 Hz cutoff frequency was used. From each window, a vector of features was obtained by calculating variables from the time and frequency domain. See 'features_info.txt' for more details.
+
+Data (zip file) is located at https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip
 
 ###Notes on the original (raw) data 
 The original data set contains the following for each record:
@@ -51,35 +53,113 @@ Jorge L. Reyes-Ortiz, Alessandro Ghio, Luca Oneto, Davide Anguita. November 2012
 ##Creating the tidy datafile
 
 ###Guide to create the tidy data file
-Description on how to create the tidy data file (1. download the data, ...)/
+ 1. Download the smart phone data to a local file (see URL above). This should be saved to the same folder that you will use as your Working Directory in R.
+ 2. Save the R script called run_analysis.R to your working directory as well.
+ 3. Open R and set the working directory
+ - The run_analysis.R script uses the dplyr package, so if you do not already have package installed you must install it prior to running the script. You can install the package by running install.packages("plyr") from the console prompt.
+ 4. Run the following code from the console prompt ... source("run_analysis.R")
+ 5. The file 'TidyDataSet.txt' will be created in the working directory.
 
 ###Cleaning of the data
-Short, high-level description of what the cleaning script does. [link to the readme document that describes the code in greater detail]()
+The script run_analysis.R does the following:
+ 1. Merges the training and the test sets to create one data set.
+ 2. Extracts only the measurements on the mean and standard deviation for each measurement. 
+ 3. Uses descriptive activity names to name the activities in the data set
+ 4. Appropriately labels the data set with descriptive variable names. 
+ 5. From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject.
 
-##Description of the variables in the tiny_data.txt file
-General description of the file including:
- - Dimensions of the dataset
- - Summary of the data
- - Variables present in the dataset
+For more information please see the README file: https://github.com/schoda01/GettingAndCleaningData/blob/master/README.md
 
-(you can easily use Rcode for this, just load the dataset and provide the information directly form the tidy data file)
+##Description of the variables in the TidyDataSet.txt file
+TidyDataSet.txt is a a space-delimited text file. The first row contains the field names for the variables. There are a total of 180 observations (30 subjects by 6 activities) and 86 variables containing information on the mean and standard deviation variables.
 
-###Variable 1 (repeat this section for all variables in the dataset)
-Short description of what the variable describes.
-
-Some information on the variable including:
- - Class of the variable
- - Unique values/levels of the variable
- - Unit of measurement (if no unit of measurement list this as well)
- - In case names follow some schema, describe how entries were constructed (for example time-body-gyroscope-z has 4 levels of descriptors. Describe these 4 levels). 
-
-(you can easily use Rcode for this, just load the dataset and provide the information directly form the tidy data file)
-
-####Notes on variable 1:
-If available, some additional notes on the variable not covered elsewehere. If no notes are present leave this section out.
-
-##Sources
-Sources you used if any, otherise leave out.
-
-##Annex
-If you used any code in the codebook that had the echo=FALSE attribute post this here (make sure you set the results parameter to 'hide' as you do not want the results to show again)
+Below is a summary of the variables in TidyDataSet.txt:
+ 1. subject: Factor w/ 30 levels (integers between 1 and 30)
+ 2. activity: Factor w/ 6 levels (WALKING, WALKING_UPSTAIRS, WALKING_DOWNSTAIRS, SITTING, STANDING, LAYING)
+ 3. activityid: num w/ 6 levels (integers between 1 and 6)
+ 4. TimeBodyAccelerometerMeanX: num
+ 5. TimeBodyAccelerometerMeanY: num
+ 6. TimeBodyAccelerometerMeanZ: num
+ 7. TimeBodyAccelerometerStDevX: num
+ 8. TimeBodyAccelerometerStDevY: num
+ 9. TimeBodyAccelerometerStDevZ: num
+ 10. TimeGravityAccelerometerMeanX: num
+ 11. TimeGravityAccelerometerMeanY: num
+ 12. TimeGravityAccelerometerMeanZ: num
+ 13. TimeGravityAccelerometerStDevX: num
+ 14. TimeGravityAccelerometerStDevY: num
+ 15. TimeGravityAccelerometerStDevZ: num
+ 16. TimeBodyAccelerometerJerkMeanX: num
+ 17. TimeBodyAccelerometerJerkMeanY: num
+ 18. TimeBodyAccelerometerJerkMeanZ: num
+ 19. TimeBodyAccelerometerJerkStDevX: num
+ 20. TimeBodyAccelerometerJerkStDevY: num
+ 21. TimeBodyAccelerometerJerkStDevZ: num
+ 22. TimeBodyGyroscopeMeanX: num
+ 23. TimeBodyGyroscopeMeanY: num
+ 24. TimeBodyGyroscopeMeanZ: num
+ 25. TimeBodyGyroscopeStDevX: num
+ 26. TimeBodyGyroscopeStDevY: num
+ 27. TimeBodyGyroscopeStDevZ: num
+ 28. TimeBodyGyroscopeJerkMeanX: num
+ 29. TimeBodyGyroscopeJerkMeanY: num
+ 30. TimeBodyGyroscopeJerkMeanZ: num
+ 31. TimeBodyGyroscopeJerkStDevX: num
+ 32. TimeBodyGyroscopeJerkStDevY: num
+ 33. TimeBodyGyroscopeJerkStDevZ: num
+ 34. TimeBodyAccelerometerMagnitudeMean: num
+ 35. TimeBodyAccelerometerMagnitudeStDev: num
+ 36. TimeGravityAccelerometerMagnitudeMean: num
+ 37. TimeGravityAccelerometerMagnitudeStDev: num
+ 38. TimeBodyAccelerometerJerkMagnitudeMean: num
+ 39. TimeBodyAccelerometerJerkMagnitudeStDev: num
+ 40. TimeBodyGyroscopeMagnitudeMean: num
+ 41. TimeBodyGyroscopeMagnitudeStDev: num
+ 42. TimeBodyGyroscopeJerkMagnitudeMean: num
+ 43. TimeBodyGyroscopeJerkMagnitudeStDev: num
+ 44. FrequencyBodyAccelerometerMeanX: num
+ 45. FrequencyBodyAccelerometerMeanY: num
+ 46. FrequencyBodyAccelerometerMeanZ: num
+ 47. FrequencyBodyAccelerometerStDevX: num
+ 48. FrequencyBodyAccelerometerStDevY: num
+ 49. FrequencyBodyAccelerometerStDevZ: num
+ 50. FrequencyBodyAccelerometerMeanFrequencyX: num
+ 51. FrequencyBodyAccelerometerMeanFrequencyY: num
+ 52. FrequencyBodyAccelerometerMeanFrequencyZ: num
+ 53. FrequencyBodyAccelerometerJerkMeanX: num
+ 54. FrequencyBodyAccelerometerJerkMeanY: num
+ 55. FrequencyBodyAccelerometerJerkMeanZ: num
+ 56. FrequencyBodyAccelerometerJerkStDevX: num
+ 57. FrequencyBodyAccelerometerJerkStDevY: num
+ 58. FrequencyBodyAccelerometerJerkStDevZ: num
+ 59. FrequencyBodyAccelerometerJerkMeanFrequencyX: num
+ 60. FrequencyBodyAccelerometerJerkMeanFrequencyY: num
+ 61. FrequencyBodyAccelerometerJerkMeanFrequencyZ: num
+ 62. FrequencyBodyGyroscopeMeanX: num
+ 63. FrequencyBodyGyroscopeMeanY: num
+ 64. FrequencyBodyGyroscopeMeanZ: num
+ 65. FrequencyBodyGyroscopeStDevX: num
+ 66. FrequencyBodyGyroscopeStDevY: num
+ 67. FrequencyBodyGyroscopeStDevZ: num
+ 68. FrequencyBodyGyroscopeMeanFrequencyX: num
+ 69. FrequencyBodyGyroscopeMeanFrequencyY: num
+ 70. FrequencyBodyGyroscopeMeanFrequencyZ: num
+ 71. FrequencyBodyAccelerometerMagnitudeMean: num
+ 72. FrequencyBodyAccelerometerMagnitudeStDev: num
+ 73. FrequencyBodyAccelerometerMagnitudeMeanFrequency: num
+ 74. FrequencyBodyAccelerometerJerkMagnitudeMean: num
+ 75. FrequencyBodyAccelerometerJerkMagnitudeStDev: num
+ 76. FrequencyBodyAccelerometerJerkMagnitudeMeanFrequency: num
+ 77. FrequencyBodyGyroscopeMagnitudeMean: num
+ 78. FrequencyBodyGyroscopeMagnitudeStDev: num
+ 79. FrequencyBodyGyroscopeMagnitudeMeanFrequency: num
+ 80. FrequencyBodyGyroscopeJerkMagnitudeMean: num
+ 81. FrequencyBodyGyroscopeJerkMagnitudeStDev: num
+ 82. FrequencyBodyGyroscopeJerkMagnitudeMeanFrequency: num
+ 83. AngleTimeBodyAccelerometerMeanGravity: num
+ 84. AngleTimeBodyAccelerometerJerkMeanGravityMean: num
+ 85. AngleTimeBodyGyroscopeMeanGravityMean: num
+ 86. AngleTimeBodyGyroscopeJerkMeanGravityMean: num
+ 87. AngleXGravityMean: num
+ 88. AngleYGravityMean: num
+ 89. AngleZGravityMean: num
